@@ -5,12 +5,20 @@ A Python script that exports all of your Spotify playlists, useful for paranoid 
 
 To run the script, [save it from here](https://raw.githubusercontent.com/caseychu/spotify-backup/master/spotify-backup.py) and double-click it. It'll ask you for a filename and then pop open a web page so you can authorize access to the Spotify API. Then the script will load your playlists and save a tab-separated file with your playlists that you can open in Excel. You can even copy-paste the rows from Excel into a Spotify playlist.
 
+First make sure to have the necessary dependencies:
+
+    pip install dominate
+
 You can run the script from the command line:
 
     python spotify-backup.py playlists.txt
 
-or, to get a JSON dump, use:
+or, to get other formats, use:
 
+    # HTML
+    python spotify-backup.py playlists.html --format=html
+
+    # JSON
     python spotify-backup.py playlists.json --format=json
 
 By default, it includes your playlists. To include your Liked Songs, you can use:

@@ -13,6 +13,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import webbrowser
+import FormatHtml
 
 logging.basicConfig(level=20, datefmt='%I:%M:%S', format='[%(asctime)s] %(message)s')
 
@@ -135,7 +136,7 @@ def main():
 	                                                         + '`playlist-read-private` permission)')
 	parser.add_argument('--dump', default='playlists', choices=['liked,playlists', 'playlists,liked', 'playlists', 'liked'],
 	                    help='dump playlists or liked songs, or both (default: playlists)')
-	parser.add_argument('--format', default='txt', choices=['json', 'txt'], help='output format (default: txt)')
+	parser.add_argument('--format', default='txt', choices=['json', 'html', 'txt'], help='output format (default: txt)')
 	parser.add_argument('file', help='output filename', nargs='?')
 	args = parser.parse_args()
 	
@@ -188,6 +189,10 @@ def main():
 				'albums': liked_albums
 			}, f)
 		
+	    # HTML page.
+		elif args.format == 'html':
+			FormatHtml.outputAsHtml(f, playlists)
+
 		# Tab-separated file.
 		else:
 			f.write('Playlists: \r\n\r\n')

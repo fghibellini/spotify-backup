@@ -1,0 +1,29 @@
+
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+h2 {
+	background: #ccc;
+	margin: 0;
+	padding: 1rem 3rem;
+}
+
+.track {
+		padding: 2px 12px;
+		display: flex;
+		flex-direction: row;
+		display: flex;
+}
+
+.track-name-column {
+	flex: 0 0 30%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnail>img {
+	height: 43px;
+}
